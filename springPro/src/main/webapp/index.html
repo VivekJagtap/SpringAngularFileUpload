@@ -1,0 +1,373 @@
+<html>
+   
+   <head>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="home.js"></script>
+      
+     <style>
+		.loader {
+		  border: 16px solid #f3f3f3;
+		  border-radius: 50%;
+		  border-top: 16px solid #3498db;
+		  width: 120px;
+		  height: 120px;
+		  -webkit-animation: spin 2s linear infinite;
+		  animation: spin 2s linear infinite;
+		}
+		
+		@-webkit-keyframes spin {
+		  0% { -webkit-transform: rotate(0deg); }
+		  100% { -webkit-transform: rotate(360deg); }
+		}
+		
+		@keyframes spin {
+		  0% { transform: rotate(0deg); }
+		  100% { transform: rotate(360deg); }
+		}
+ </style> 
+   </head>
+   
+   <body ng-app = "myApp">
+		 <nav class="navbar navbar-default">
+		   <div class="container-fluid">
+		    <div class="navbar-header">
+		        <a class="navbar-brand" href="#"><img src="https://live.runmyprocess.com/pub/113561388583172327/upload/d822f620-9800-11e5-8197-22000b8b31dc/FLOWIAN(120X120).png" alt="Mountain View" style="width:80px;height:60px;    margin-top: 4px;"></a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		    <!--   <li class="active"><a href="#">Home</a></li> -->
+		      <li><a href="#"><h2>IBM Watson Visual Recognition of Tyres</h2></a></li>
+		      <!-- <li><a href="#">Page 2</a></li>
+		      <li><a href="#">Page 3</a></li> -->
+		    </ul>
+		  </div>
+		</nav>
+			
+<div ng-controller = "myCtrl">
+     <div class="container">
+			<div class="panel panel-default">
+			  <div class="panel-heading"><strong>Customer Details</strong></div>
+			  <div class="panel-body">
+			 <form class="form-horizontal">
+			    <div class="row">
+			       <div class="col-md-6">
+						  <div class="form-group">
+						    <label class="control-label col-sm-2" for="email">Name:</label>
+						    <div class="col-sm-10">
+						      <input type="text" ng-model="name" class="form-control" id="name" placeholder="Enter name">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="control-label col-sm-2" for="pwd">Contact:</label>
+						    <div class="col-sm-10"> 
+						      <input type="text" ng-model="contact" class="form-control" id="contact" placeholder="Enter contact">
+						    </div>
+						  </div>
+						   <div class="form-group">
+						    <label class="control-label col-sm-2" for="pwd">Email:</label>
+						    <div class="col-sm-10"> 
+						      <input type="email" ng-model="email" class="form-control" id="email" placeholder="Enter email">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="control-label col-sm-2" for="pwd">Address:</label>
+						    <div class="col-sm-10"> 
+						      <input type="text" ng-model="address" class="form-control" id="address" placeholder="Enter address	">
+						    </div>
+						  </div>
+						</div>
+						<div class="col-md-6"></div>
+					</div>	  
+			</form>
+			  
+			  
+			  </div>
+			</div>
+			
+			<div class="panel panel-default">
+			  <div class="panel-heading"><strong>Tyre Details</strong></div>
+			  <div class="panel-body">
+			     <div class="panel panel-default">
+					  <div class="panel-heading">Please Fill Description of Tyres</div>
+					  <div class="panel-body">
+					   <div class="row">
+			       <div class="col-md-6">
+						  <div class="form-group">
+						    <label class="control-label col-sm-4" for="email">Tyre Name:</label>
+						    <div class="col-sm-10">
+						      <input type="text" ng-model="name" class="form-control" id="name" placeholder="Tyre name">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="control-label col-sm-4" for="pwd">Tyre Type:</label>
+						    <div class="col-sm-10"> 
+						      <input type="text" ng-model="contact" class="form-control" id="contact" placeholder="Enter contact">
+						    </div>
+						  </div>
+						   <div class="form-group">
+						    <label class="control-label col-sm-4" for="pwd">Damaged Type:</label>
+						    <div class="col-sm-10"> 
+						      <input type="email" ng-model="email" class="form-control" id="email" placeholder="Enter email">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="control-label col-sm-4" for="pwd">Date Of Purchase:</label>
+						    <div class="col-sm-10"> 
+						      <input type="date" ng-model="address" class="form-control" id="address" placeholder="Enter address	">
+						    </div>
+						  </div>
+						</div>
+						<div class="col-md-6">
+						
+						   <div class="row">
+						     <div class="col-md-6">
+						      <label>Select Image</label>			    
+			       			    <!--  <input type = "file" ng-model="file" file-model = "myFile1" multiple="true"/>   -->
+			       			        <!-- <input type = "file" ng-model="file" nv-file-select uploader="uploader"/> --> 
+			       			         <input type = "file" file-model = "myFile1" multiple="true"/> 
+		       			         
+			       			        
+						      </div>
+						      <div class="col-md-6">
+						        <label>Select JSON file</label>
+						             <!-- <input type = "file" file-model = "myFile2" multiple="true"/>  -->  
+						             <input type = "file" file-model = "myFile2" multiple="true"/>          
+						      </div>
+						   </div><br><br>
+						   
+						   <div class="row">
+						      <div class="col-md-4"></div>     
+						      <div class="col-md-4">
+						           <button ng-click = "uploadFile()"  class="btn btn-success btn-raised">upload</button>            
+						      </div>
+						      <div class="col-md-4"></div>     
+						   </div><br>
+						    <div class="panel panel-default">
+								  <div class="panel-heading"><strong>Uploaded Image</strong></div>
+								  <div class="panel-body">
+								      <div class="row">
+								        <div class="col-md-12">
+								         <div><p>Selected files:</p>
+								          <img src="{{data_url[0].fileDownloadUrl}}" style="width:150px;height:100px;"></img>								          							            
+						       			     {{data_url[0].fileName}}
+						       			    </div>
+								        </div>		
+								       
+								      </div>
+								  
+								  
+								  </div>
+							</div>
+						</div>
+					</div>	  
+					  
+					  
+					  
+					  </div>
+				 </div>
+		
+			  
+			  
+			  </div>
+			</div>
+			 <div class="panel panel-default" ng-show="watsonResult">
+					  <div class="panel-heading">Watson Result</div>
+					  <div class="panel-body">
+					      <div class="row" >
+					        <div class="col-md-12" >
+					      					            <!-- <img ng-src="{{data_url[0].filePath}}"></img> -->
+					            <table class="table table-bordered">
+								    <thead>
+								      <tr>
+								        <th>Tyre Image</th>
+								        <th>Dameged Type</th>
+								        <th>Damaged score</th>
+								        <th>Claim Approval</th>
+								      </tr>
+								    </thead>
+								    <tbody>
+								      <tr>
+								       <td><img src="{{data_url[0].fileDownloadUrl}}" style="width:50px;height:50px;"></img>	</td>
+								        <td>{{watsonResult.images[0].classifiers[0].classes[0].class}}</td>
+								        <td>{{tyrescore}}%</td>
+								        <td><strong>{{claim}}</strong></td>
+								        
+								      </tr>
+								      
+								    </tbody>
+								  </table>
+				 
+					        </div>		
+					       
+					      </div>
+					 <!--  {{watsonResult}} -->
+					  
+					  </div>
+				</div>
+		
+			</div>
+      
+      
+      
+      
+      
+      
+      
+      
+         <!-- <input type = "file" file-model = "myFile1" multiple="true"/><br/>
+		 jsonfile : <input type = "file" file-model = "myFile2" multiple="true"/><br/> 
+         <button ng-click = "uploadFile()">upload me</button>
+ --> </div>
+<!-------------------------------------Scripting Session  ------------------------------------->      
+      <script>
+         var myApp = angular.module('myApp', []);
+         
+         myApp.directive('fileModel', ['$parse', function ($parse) {
+            return {
+               restrict: 'A',
+               link: function(scope, element, attrs) {
+                  var model = $parse(attrs.fileModel);
+                  var modelSetter = model.assign;
+                  
+                  element.bind('change', function(){
+                     scope.$apply(function(){
+                        modelSetter(scope, element[0].files[0]);
+                     });
+                  });
+               }
+            };
+         }]);
+         
+         myApp.factory('myFileUpload',['$http',function($http){
+        	 var myFileUploadObject = {};
+        	 myFileUploadObject.Watsonresult = [];
+        	 
+        	 myFileUploadObject.setWatsonresult = function(result){
+        		 myFileUploadObject.Watsonresult = result;
+        	 }
+        	 
+        	 myFileUploadObject.getWatsonresult = function(){
+        		 return myFileUploadObject.Watsonresult
+        	 }
+        	 myFileUploadObject.uploadFileToUrl = function(file1, file2,uploadUrl){
+             	
+	               var fd = new FormData();
+	              
+	               fd.append('parameters', file2);
+	 			   fd.append('images_file', file1); 
+	 			   console.dir(fd);
+	 			  
+		                $http({
+				                method:'POST',
+				                url:uploadUrl,
+				                data:fd,
+				                transformRequest: angular.identity,
+				                headers: {'Content-Type': undefined}
+		                }).success(function(response){
+				                 myFileUploadObject.setWatsonresult(response);
+				 			     console.log("WOw"+JSON.stringify(myFileUploadObject.Watsonresult));
+				 			     //return response;
+		                }).error(function(){
+		                	
+		                });
+             };
+			return myFileUploadObject;  	 
+         }]);
+      
+        /*  myApp.service('fileUpload', ['$http','$q', function ($http,$q) {
+        	 this.Watsonresult = [];
+             this.uploadFileToUrl = function(file1, file2,uploadUrl){
+            	var deffered=$q.defer(); 
+            	
+               var fd = new FormData();
+             
+               fd.append('parameters', file2);
+			   fd.append('images_file', file1);
+			   
+			   console.dir(fd);
+			   //[{"key":"Content-Type","value":"application/x-www-form-urlencoded","description":""}]
+               $http({
+               method:'POST',
+               url:uploadUrl,
+               data:fd,
+               transformRequest: angular.identity,
+               headers: {'Content-Type': undefined}
+               })
+               .success(function(response){
+			    
+            	   this.Watsonresult=response;
+			     console.log("WOw"+JSON.stringify(fileUpload.Watsonresult));
+			     return response;
+               })
+            
+               .error(function(){
+               });
+            }
+         }]);
+       */
+         myApp.controller('myCtrl', ['$scope', 'myFileUpload','$http', function($scope, myFileUpload,$http){
+            $scope.uploadFile = function(){
+               var file1 = $scope.myFile1;
+               
+         
+               
+               
+               console.log('file is ' );
+               console.dir(file1);
+			   
+               var formd = new FormData();
+			   formd.append('images_file', file1);
+			   
+			   $scope.myFileUpload = myFileUpload;
+			   $scope.$watch('myFileUpload.Watsonresult',function(oldval,newval){
+					if(myFileUpload.Watsonresult){
+						$scope.watsonResult = myFileUpload.getWatsonresult();
+						/* alert(JSON.stringify(($scope.watsonResult.images[0].classifiers[0].classes[0].score)*100)); */
+						$scope.tyrescore= ($scope.watsonResult.images[0].classifiers[0].classes[0].score)*100 ;
+						if($scope.tyrescore >80){
+							 $scope.claim="Claim Approved!";
+						}
+						else{
+							$scope.claim="Claim Not Approved!";
+						}
+					}		
+				});
+				
+			   /* if($scope.watsonResult.images[0].classifiers[0].classes[0].score >80){
+				   alert("ohh yaa");
+				   $scope.claim="Claim Approved";
+			   } */
+			   
+			   
+			   
+			  $http({
+               method:'POST',
+               url:'/file/upload/clientFile',
+               data:formd,
+               transformRequest: angular.identity,
+               headers: {'Content-Type': undefined}
+               })
+               .success(function(response){
+            	   $scope.data_url=response;
+            	   console.log('db'+JSON.stringify($scope.data_url));
+
+            	   var file2 = $scope.myFile2;
+            	   var uploadUrl = "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=2a20cee9b5a2ad571673ef1ee4bf6ff07e801eef&version=2016-05-20";
+            	   myFileUpload.uploadFileToUrl(file1,file2, uploadUrl);
+                 
+               })
+            
+               .error(function(){
+               });
+               
+            };
+         }]);
+			
+      </script>
+      
+   </body>
+</html>
